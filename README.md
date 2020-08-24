@@ -1,30 +1,47 @@
 # Tutorial Flask App
 ## nesse tutorialzinho veremos como criar um mini projeto com crud e tals usando flask
 
+### Esse Tutorial está sendo pensado para usuários linux(debian, Ubuntu, kali... E afins que usam o Apt com gerenciador de pacotes)
+#### em breve terá um tutorial para windows e também um para mac
+
+
 _bora lá então!_
 
 ----
 
 Primeiramente iremos preparar o ambiente:
 ```sh
-apt update && apt upgrade
+# vamos atualizar o repositório local
+apt update
+
+# Agora vamos atualizar os pacotes
+apt upgrade
+
+# Vamos instalar o Python 3
 apt install python3 python3-pip
 
+# Vamos Criar uma pasta Chamada Batata, cujo qual, será o nome do projeto
+mkdir Batata
 
-mkdir Batata 
+# Vamos adentrar a pasta
 cd Batata
 
+# Ok, agora vamos criar um ambiente virtual para não comprometer nosso projeto com pacotes python externo
 python3 -m venv VenvBatata
+
+# Após termos criado nosso ambiente Virtual, vamos starta lo
 . VenvBatata/bin/activate
 
-pip install --upgrade pip
+# Dentro do ambiente virtual, não temos acesso aos pacotes
+# python instalados na máquina, então vamos instalar só o necessário para 
+# o app funcionar
+
 pip install flask
 
 ```
 
-agora vamos ao código:
-
-mas primeiro vamos criar um arquivo python
+Com o ambiente já configurado,
+Vamos criar um arquivo python
 ```sh
 echo '' > app.py
 ```
@@ -32,10 +49,12 @@ OU
 ```sh
 touch app.py
 ```
-o importante é criar um arquivo, não importa os meuos...
+o importante é criar um arquivo, não importa os métodos...
+
 
 após isso, em seu editor de texto preferido, abra esse arquivo app.py
 que acabamos de criar
+
 
 por praticidade vou abrir no vim, que é um editor de texto que roda no terminal
 (eu recomendo usar ele pq é leve e muito bom)
@@ -52,6 +71,8 @@ vim app.py
 # para salvar vc aperta a tecla  ESC  e após  :wq
 # isso fara com q o arquivo seja salvo, para sair sem salvar é a mesma lógica, porem :q ao invés de :wq 
 ```
+
+
 
 Agora sim, vamos ao código!
 ```sh
@@ -148,6 +169,18 @@ uma string, um redirecionamento, e uma infinidade de coisas
 Oque eu quero dizer: Essa função poderá receber dados, trata los, salva los,
 modifica los, excluir etc e tal, e por fim deve retornar alguma coisa,
 nem que seja um mizero par de aspas.
+
+O app.run() faz com q o servidor flask inicie, e comece a servir as paginas web.
+Lembra daquele Warning, então, ele esta avisando que não devemos colocar esse app com esse
+Servidor em produção (subir em um host e todas as pessoas terem acesso)
+Esse servidor tem uma função especial:
+*Um Debbugador*
+Esse debugador nos avisa de tem algo que não esta funcionando direito
+E na maioria das vezes, nos mostra exatamente o erro do código
+
+Falaremos mais sobre isso em breve
+
+
 
 ficou um pouco extenso esse pequeno app,as eu acho isso crucial pois é essa a lógica de um App
 Flask, vc importa a classe, instancia um app, cria uma rota e em seguida executa o mesmo
